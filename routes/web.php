@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/stocks', function () {
-    return view('index');
-});
+Route::get('/stocks', [StockController::class, 'index'])->name('index');
