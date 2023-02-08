@@ -35,39 +35,19 @@
           <th>備品の数</th>
           <th>削除</th>
         </tr>
-        <tr>
-          <td>刷毛</td>
-          <td>
-            <button type="submit" name="plus">+</button>
-            <input type="number" name="count" value="1">
-            <button type="submit" name="minus">-</button>
-          </td>
-          <td>
-            <button type="submit">削除</button>
-          </td>
-        </tr>
-        <tr>
-          <td>ローラー</td>
-          <td>
-            <button type="submit" name="plus">+</button>
-            <input type="number" name="count" value="2">
-            <button type="submit" name="minus">-</button>
-          </td>
-          <td>
-            <button type="submit">削除</button>
-          </td>
-        </tr>
-        <tr>
-          <td>シンナー</td>
-          <td>
-            <button type="submit" name="plus">+</button>
-            <input type="number" name="count" value="3">
-            <button type="submit" name="minus">-</button>
-          </td>
-          <td>
-            <button type="submit">削除</button>
-          </td>
-        </tr>
+        @foreach ($tools as $tool)
+          <tr>
+            <td>{{ $tool['name'] }}</td>
+            <td>
+              <button type="submit" name="plus">+</button>
+              <input type="number" name="count" value="{{ $tool['quantity'] }}">
+              <button type="submit" name="minus">-</button>
+            </td>
+            <td>
+              <button type="submit">削除</button>
+            </td>
+          </tr>
+        @endforeach
       </table>
     </div>
   </main>
