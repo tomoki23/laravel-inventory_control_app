@@ -37,7 +37,7 @@
         </tr>
         @foreach ($tools as $tool)
           <tr>
-            <td>{{ $tool['name'] }}</td>
+            <td>{{ $tool['tool_name'] }}</td>
             <td>
               <button type="submit" name="plus">+</button>
               <input type="number" name="count" value="{{ $tool['quantity'] }}">
