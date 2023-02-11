@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Stock;
 
 class StockController extends Controller
 {
     public function index()
     {
-        $tools = [
-            ['name' => '刷毛', 'quantity' => 20],
-            ['name' => 'ローラー', 'quantity' => 40],
-            ['name' => 'シンナー', 'quantity' => 3],
-        ];
+        $tools = Stock::all();
 
         return view('index', compact('tools'));
     }
