@@ -24,8 +24,10 @@
   <main>
     <div>
       {{-- 追加フォーム --}}
-      <form action="#" method="POST">
-        <input type="text" name="tool">
+      <form action="{{ route('stocks.store') }}" method="POST">
+        @csrf
+        <input type="text" name="tool_name">
+        <input type="number" name="quantity">
         <button type="submit">追加</button>
       </form>
       {{-- 備品表示テーブル --}}
