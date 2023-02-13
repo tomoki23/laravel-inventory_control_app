@@ -41,9 +41,12 @@
           <tr>
             <td>{{ $tool['tool_name'] }}</td>
             <td>
-              <button type="submit" name="plus">+</button>
-              <input type="number" name="count" value="{{ $tool['quantity'] }}">
-              <button type="submit" name="minus">-</button>
+              <form action="#" method="POST">
+                @csrf
+                <button type="submit" name="plus">+</button>
+                <span>{{ $tool['quantity'] }}</span>
+                <button type="submit" name="minus">-</button>
+              </form>
             </td>
             <td>
               <form action="{{ route('stocks.destroy', $tool->id)}}" method="POST">
