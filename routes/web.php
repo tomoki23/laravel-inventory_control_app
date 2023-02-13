@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/stocks', [StockController::class, 'index'])->name('index');
+Route::resource('stocks', StockController::class);

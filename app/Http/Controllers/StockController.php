@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Stock;
 use Illuminate\Http\Request;
 
 class StockController extends Controller
@@ -13,7 +14,9 @@ class StockController extends Controller
      */
     public function index()
     {
-        //
+        $tools = Stock::all();
+
+        return view('index', compact('tools'));
     }
 
     /**
