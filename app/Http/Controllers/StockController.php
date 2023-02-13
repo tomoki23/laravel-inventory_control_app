@@ -37,7 +37,10 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $stock = new Stock();
+        $stock->RegisterStock($request);
+
+        return redirect('stocks');
     }
 
     /**
