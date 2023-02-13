@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\StockUpDownController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::resource('stocks', StockController::class);
+Route::post('stocks/counter', [StockUpDownController::class, 'upDownCounter'])->name('stocks.counter');
