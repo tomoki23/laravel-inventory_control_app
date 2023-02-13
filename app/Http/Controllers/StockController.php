@@ -38,7 +38,7 @@ class StockController extends Controller
     public function store(Request $request)
     {
         $stock = new Stock();
-        $stock->RegisterStock($request);
+        $stock->registerStock($request);
 
         return redirect('stocks');
     }
@@ -85,6 +85,9 @@ class StockController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tool = Stock::find($id);
+        $tool->delete();
+
+        return redirect('stocks');
     }
 }
