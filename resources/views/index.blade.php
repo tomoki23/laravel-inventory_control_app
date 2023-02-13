@@ -46,7 +46,11 @@
               <button type="submit" name="minus">-</button>
             </td>
             <td>
-              <button type="submit">削除</button>
+              <form action="{{ route('stocks.destroy', $tool->id)}}" method="POST">
+                @csrf
+                @method('delete')
+                <button type="submit" name="delete">削除</button>
+              </form>
             </td>
           </tr>
         @endforeach
