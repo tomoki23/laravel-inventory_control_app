@@ -12,7 +12,7 @@
     <h1>在庫管理画面</h1>
     <nav>
       <ul>
-        <li><a href="#">管理画面</a></li>
+        <li><a href="{{ route('stocks.index') }}">管理画面</a></li>
         <li><a href="#">日報登録画面</a></li>
         <li><a href="#">日報一覧画面</a></li>
       </ul>
@@ -41,14 +41,17 @@
           <tr>
             <td>{{ $tool['tool_name'] }}</td>
             <td>
-              <form action="#" method="POST">
+              {{-- カウントアップ用のフォーム --}}
+              <form action="{{ route('stocks.counter') }}" method="POST">
                 @csrf
                 <button type="submit" name="plus">+</button>
-                <span>{{ $tool['quantity'] }}</span>
+                <span>{{ $tool['quantity'] }}個</span>
+                <input type="hidden" name="id" value="{{ $tool['id'] }}">
                 <button type="submit" name="minus">-</button>
               </form>
             </td>
             <td>
+              {{-- 削除用のフォーム --}}
               <form action="{{ route('stocks.destroy', $tool->id)}}" method="POST">
                 @csrf
                 @method('delete')
