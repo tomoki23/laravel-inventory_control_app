@@ -13,7 +13,7 @@ class StockPostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class StockPostRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'tool_name' => 'required|max:255',
+            'quantity' => 'required|min:0|max:1000'
         ];
     }
 }
