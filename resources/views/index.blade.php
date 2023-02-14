@@ -30,6 +30,17 @@
         <input type="number" name="quantity">
         <button type="submit">追加</button>
       </form>
+
+      {{-- エラー表示 --}}
+      {{-- エラーがあるか判定 --}}
+      @if ($errors->any())
+          <ul>
+            @foreach ($errors->all() as $message)
+                <li>{{ $message }}</li>
+            @endforeach
+          </ul>
+      @endif
+
       {{-- 備品表示テーブル --}}
       <table border="1">
         <tr>
