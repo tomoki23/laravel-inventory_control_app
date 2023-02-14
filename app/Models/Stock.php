@@ -18,9 +18,11 @@ class Stock extends Model
 
     public function RegisterStock($stock)
     {
+        $tool_name = $stock->input('tool_name');
+        $quantity = $stock->input('quantity');
         $this->create([
-            'tool_name' => $stock['tool_name'],
-            'quantity' => $stock['quantity']
+            'tool_name' => $tool_name,
+            'quantity' => $quantity
         ]);
     }
 }
