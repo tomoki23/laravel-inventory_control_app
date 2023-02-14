@@ -153,6 +153,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'tool_name' => '備品または材料',
+        'quantity' => '個数'
+    ],
 
 ];
