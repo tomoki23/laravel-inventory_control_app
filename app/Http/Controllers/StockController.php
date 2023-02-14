@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StockPostRequest;
 use App\Models\Stock;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class StockController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StockPostRequest $request)
     {
         $stock = new Stock();
         $stock->registerStock($request);
