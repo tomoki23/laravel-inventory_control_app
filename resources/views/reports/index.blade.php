@@ -16,7 +16,7 @@
     <nav>
       <ul>
         <li><a href="{{ route('stocks.index') }}">管理画面</a></li>
-        <li><a href="#">日報登録画面</a></li>
+        <li><a href="{{ route('reports.create') }}">日報登録画面</a></li>
         <li><a href="{{ route('reports.index') }}">日報一覧画面</a></li>
       </ul>
     </nav>
