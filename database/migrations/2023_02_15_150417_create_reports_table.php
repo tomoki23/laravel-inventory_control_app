@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
+            $table->string('member');
+            $table->longText('content');
             $table->timestamps();
         });
     }
