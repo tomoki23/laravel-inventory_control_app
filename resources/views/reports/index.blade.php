@@ -25,7 +25,18 @@
 
   {{-- メインここから --}}
   <main>
-
+    <div>
+      @foreach ($reports as $report)
+        <div>
+          <p>{{ $report->created_at }}</p>
+          <p>{{ $report->user_name }}</p>
+          <p>{{ $report->content }}</p>
+        </div>
+        <hr>
+      @endforeach
+    </div>
+  </main>
+  {{-- メインここまで --}}
 </body>
 
 </html>
