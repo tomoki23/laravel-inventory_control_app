@@ -36,7 +36,10 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $report = new Report();
+        $report->registerReport($request);
+
+        return redirect('reports');
     }
 
     /**
