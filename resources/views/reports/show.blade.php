@@ -31,6 +31,7 @@
           <p>{{ $report->content }}</p>
           <p>{{ $report->created_at }}</p>
         </div>
+        <a href="{{ route('reports.edit', $report->id) }}">更新</a>
         <a href="{{ route('reports.index') }}">戻る</a>
         <hr>
     </div>
