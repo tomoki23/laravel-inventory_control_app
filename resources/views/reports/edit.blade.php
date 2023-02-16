@@ -29,10 +29,10 @@
       <form action="#" method="POST">
         @csrf
         <label name="user_name">登録者名</label>
-        <input type="text" name="user_name" value="test">
+        <input type="text" name="user_name" value="{{ $report->user_name }}">
         <br>
         <label name="site_name">現場名</label>
-        <input type="text" name="site_name" value="test">
+        <input type="text" name="site_name" value="{{ $report->site_name }}">
         <br>
         <p>メンバー</p>
         ユーザー1<input type="checkbox" name="member[]" value="1">
@@ -40,9 +40,9 @@
         ユーザー3<input type="checkbox" name="member[]" value="3">
         <br>
         <label name="content">業務内容</label>
-        <textarea name="content" cols="50" rows="4" placeholder="test"></textarea>
+        <textarea name="content" cols="50" rows="4" placeholder="{{ $report->content }}"></textarea>
         <br>
-        <button type="submit">追加</button>
+        <button type="submit">更新</button>
       </form>
   </main>
   {{-- メインここまで --}}
