@@ -26,8 +26,9 @@
   <main>
     <div>
       {{-- 追加フォーム --}}
-      <form action="#" method="POST">
+      <form action="{{ route('reports.update', $report->id) }}" method="POST">
         @csrf
+        @method('PUT')
         <label name="user_name">登録者名</label>
         <input type="text" name="user_name" value="{{ $report->user_name }}">
         <br>
@@ -40,7 +41,7 @@
         ユーザー3<input type="checkbox" name="member[]" value="3">
         <br>
         <label name="content">業務内容</label>
-        <textarea name="content" cols="50" rows="4" placeholder="{{ $report->content }}"></textarea>
+        <textarea name="content" cols="50" rows="4">{{ $report->content }}</textarea>
         <br>
         <button type="submit">更新</button>
       </form>
