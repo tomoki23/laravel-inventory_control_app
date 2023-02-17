@@ -155,7 +155,10 @@ return [
 
     'attributes' => [
         'tool_name' => '備品または材料',
-        'quantity' => '個数'
+        'quantity' => '個数',
+        'user_name' => '投稿者名',
+        'site_name' => '現場名',
+        'content' => '業務内容'
     ],
 
 ];
