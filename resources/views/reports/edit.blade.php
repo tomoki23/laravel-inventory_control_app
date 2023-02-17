@@ -45,6 +45,15 @@
         <br>
         <button type="submit">更新</button>
       </form>
+      {{-- エラー表示 --}}
+      {{-- エラーがあるか判定 --}}
+      @if ($errors->any())
+      <ul>
+        @foreach ($errors->all() as $message)
+        <li>{{ $message }}</li>
+        @endforeach
+      </ul>
+      @endif
   </main>
   {{-- メインここまで --}}
 </body>
