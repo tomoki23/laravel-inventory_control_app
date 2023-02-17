@@ -96,6 +96,9 @@ class ReportController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $report = Report::find($id);
+        $report->delete();
+
+        return redirect('reports');
     }
 }
