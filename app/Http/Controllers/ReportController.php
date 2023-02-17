@@ -77,7 +77,15 @@ class ReportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $report = Report::find($id);
+
+        $report->user_name = $request->input('user_name');
+        $report->site_name = $request->input('site_name');
+        $report->member = implode(',', $request->input('member'));
+        $report->content = $request->input('content');
+        $report->save();
+
+        return redirect('reports');
     }
 
     /**
