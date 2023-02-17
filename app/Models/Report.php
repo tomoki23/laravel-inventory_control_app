@@ -22,7 +22,6 @@ class Report extends Model
     public function registerReport($report)
     {
 
-        // dd($report);
         $user_name = $report->input('user_name');
         $site_name = $report->input('site_name');
         $members = $report->input('member');
@@ -38,7 +37,8 @@ class Report extends Model
             }
         }
 
-        $members = implode(',', $member_list);
+        $members = implode(',', $members);
+
 
         $this->create([
             'user_name' => $user_name,
