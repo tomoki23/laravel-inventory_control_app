@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReportPostRequest;
 use App\Models\Report;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,7 @@ class ReportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReportPostRequest $request)
     {
         $report = new Report();
         $report->registerReport($request);
