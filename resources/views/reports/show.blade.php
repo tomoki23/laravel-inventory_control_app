@@ -32,6 +32,11 @@
           <p>{{ $report->created_at }}</p>
         </div>
         <a href="{{ route('reports.edit', $report->id) }}">更新</a>
+        <form action="{{ route('reports.destroy', $report->id) }}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button type="submit">削除</button>
+        </form>
         <a href="{{ route('reports.index') }}">戻る</a>
         <hr>
     </div>
