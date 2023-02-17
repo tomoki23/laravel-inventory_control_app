@@ -47,13 +47,13 @@
 
       {{-- エラー表示 --}}
       {{-- エラーがあるか判定 --}}
-      {{-- @if ($errors->any())
+      @if ($errors->any())
       <ul>
         @foreach ($errors->all() as $message)
         <li>{{ $message }}</li>
         @endforeach
       </ul>
-      @endif --}}
+      @endif
   </main>
   {{-- メインここまで --}}
 </body>
