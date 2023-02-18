@@ -35,9 +35,9 @@
         <input type="text" name="site_name">
         <br>
         <p>メンバー</p>
-        ユーザー1<input type="checkbox" name="member[]" value="1">
-        ユーザー2<input type="checkbox" name="member[]" value="2">
-        ユーザー3<input type="checkbox" name="member[]" value="3">
+        ユーザー1<input type="checkbox" name="member[]" value="佐藤">
+        ユーザー2<input type="checkbox" name="member[]" value="鈴木">
+        ユーザー3<input type="checkbox" name="member[]" value="高橋">
         <br>
         <label name="content">業務内容</label>
         <textarea name="content" cols="50" rows="4" placeholder="業務内容を入力してください"></textarea>
