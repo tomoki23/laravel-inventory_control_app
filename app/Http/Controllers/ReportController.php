@@ -82,7 +82,14 @@ class ReportController extends Controller
 
         $report->user_name = $request->input('user_name');
         $report->site_name = $request->input('site_name');
-        $report->member = implode(',', $request->input('member'));
+
+        $member_list = [];
+        foreach ($request->member as $key => $val) {
+            $member_list[] = $val;
+        }
+
+        $report->member = implode(',', $member_list);
+
         $report->content = $request->input('content');
         $report->save();
 
