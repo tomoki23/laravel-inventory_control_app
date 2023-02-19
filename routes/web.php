@@ -21,5 +21,4 @@ Route::get('/', function () {
 });
 
 Route::resource('stocks', StockController::class);
-Route::post('stocks/counter', [StockUpDownController::class, 'upDownCounter'])->name('stocks.counter');
 Route::resource('/reports', ReportController::class);
