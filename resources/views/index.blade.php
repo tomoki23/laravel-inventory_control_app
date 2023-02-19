@@ -53,8 +53,9 @@
             <td>{{ $tool['tool_name'] }}</td>
             <td>
               {{-- カウントアップ用のフォーム --}}
-              <form action="{{ route('stocks.counter') }}" method="POST">
+              <form action="{{ route('stocks.update', $tool->id) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <button type="submit" name="plus">+</button>
                 <span>{{ $tool['quantity'] }}個</span>
                 <input type="hidden" name="id" value="{{ $tool['id'] }}">
