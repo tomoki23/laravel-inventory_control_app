@@ -89,20 +89,13 @@ class ReportController extends Controller
      */
     public function update(ReportPostRequest $request, $id)
     {
+        //$idのデータを取得
         $report = Report::find($id);
 
+        //変更内容を更新
         $report->user_name = $request->input('user_name');
         $report->site_name = $request->input('site_name');
-
-        $member_list = [];
-        if ($request->member) {
-            foreach ($request->member as $key => $val) {
-                $member_list[] = $val;
-            }
-        }
-
-        $report->member = implode(',', $member_list);
-
+        $report->member = $request->input('member');
         $report->content = $request->input('content');
         $report->save();
 
