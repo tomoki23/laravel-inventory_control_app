@@ -38,8 +38,12 @@ class StockController extends Controller
      */
     public function store(StockPostRequest $request)
     {
-        $stock = new Stock();
-        $stock->registerStock($request);
+        $tool_name = $request->input('tool_name');
+        $quantity = $request->input('quantity');
+        Stock::create([
+            'tool_name' => $tool_name,
+            'quantity' => $quantity
+        ]);
 
         return redirect('stocks');
     }
