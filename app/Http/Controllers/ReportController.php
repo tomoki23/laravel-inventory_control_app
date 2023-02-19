@@ -37,8 +37,19 @@ class ReportController extends Controller
      */
     public function store(ReportPostRequest $request)
     {
-        $report = new Report();
-        $report->registerReport($request);
+        //リクエスト情報を取得
+        $user_name = $request->input('user_name');
+        $site_name = $request->input('site_name');
+        $members = $request->input('member');
+        $content = $request->input('content');
+
+        // データベースに登録
+        Report::create([
+            'user_name' => $user_name,
+            'site_name' => $site_name,
+            'member' => $members[0],
+            'content' => $content
+        ]);
 
         return redirect('reports');
     }
@@ -84,8 +95,10 @@ class ReportController extends Controller
         $report->site_name = $request->input('site_name');
 
         $member_list = [];
-        foreach ($request->member as $key => $val) {
-            $member_list[] = $val;
+        if ($request->member) {
+            foreach ($request->member as $key => $val) {
+                $member_list[] = $val;
+            }
         }
 
         $report->member = implode(',', $member_list);
