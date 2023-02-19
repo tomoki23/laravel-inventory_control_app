@@ -75,7 +75,19 @@ class StockController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $id = $request->input('id');
+
+        //数を1増やす
+        if ($request->has('plus')) {
+            Stock::where('id', '=', $id)->increment('quantity', 1);
+        }
+
+        //数を1減らす
+        if ($request->has('minus')) {
+            Stock::where('id', '=', $id)->increment('quantity', -1);
+        }
+
+        return redirect('stocks');
     }
 
     /**
