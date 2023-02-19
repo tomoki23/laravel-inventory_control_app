@@ -38,10 +38,10 @@ class StockController extends Controller
      */
     public function store(StockPostRequest $request)
     {
-        $tool_name = $request->input('tool_name');
+        $toolName = $request->input('tool_name');
         $quantity = $request->input('quantity');
         Stock::create([
-            'tool_name' => $tool_name,
+            'tool_name' => $toolName,
             'quantity' => $quantity
         ]);
 
