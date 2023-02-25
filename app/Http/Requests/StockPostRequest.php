@@ -25,7 +25,7 @@ class StockPostRequest extends FormRequest
     {
         return [
             'tool_name' => 'required|max:255',
-            'quantity' => 'required|numeric|min:0|max:1000'
+            'quantity' => 'required|numeric|min:1|max:1000'
         ];
     }
 }

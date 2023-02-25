@@ -24,10 +24,10 @@ class ReportPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_name' => 'required|max:255',
-            'site_name' => 'required|max:255',
+            'user_name' => 'required|min:1|max:255',
+            'site_name' => 'required|min:1|max:255',
             'member' => 'nullable|array',
-            'content' => 'required|max:1000'
+            'content' => 'required|min:1|max:1000'
         ];
     }
 }
