@@ -233,6 +233,8 @@ return [
         'updated_at' => '更新日',
         'username' => 'ユーザー名',
         'year' => '年',
+        'tool_name' => '備品または材料',
+        'quantity' => '個数'
     ],
 
 ];
