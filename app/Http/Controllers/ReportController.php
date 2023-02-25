@@ -38,15 +38,15 @@ class ReportController extends Controller
     public function store(ReportPostRequest $request)
     {
         //リクエスト情報を取得
-        $user_name = $request->input('user_name');
-        $site_name = $request->input('site_name');
+        $userName = $request->input('user_name');
+        $siteName = $request->input('site_name');
         $members = $request->input('member');
         $content = $request->input('content');
 
         // データベースに登録
         Report::create([
-            'user_name' => $user_name,
-            'site_name' => $site_name,
+            'user_name' => $userName,
+            'site_name' => $siteName,
             'member' => $members[0],
             'content' => $content
         ]);
