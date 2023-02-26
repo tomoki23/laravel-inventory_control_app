@@ -60,6 +60,7 @@ services:
             PMA_HOST: mysql
         networks:
             - sail
+        platform: linux/amd64
     redis:
         image: 'redis:alpine'
         ports:
@@ -97,6 +98,7 @@ services:
             - 'host.docker.internal:host-gateway'
         volumes:
             - '/dev/shm:/dev/shm'
+        platform: linux/amd64
         networks:
             - sail
 networks:
