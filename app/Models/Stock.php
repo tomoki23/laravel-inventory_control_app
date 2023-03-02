@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
 
 class Stock extends Model
 {
@@ -12,7 +13,13 @@ class Stock extends Model
     protected $fillable = [
         'tool_name',
         'quantity',
+        'category_id',
         'created_at',
         'updated_at'
     ];
+
+    public function category()
+    {
+        return $this->hasMany(Category::class);
+    }
 }
