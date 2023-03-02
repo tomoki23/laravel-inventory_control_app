@@ -5,6 +5,10 @@
       @csrf
       <input type="text" name="tool_name">
       <input type="number" name="quantity">
+      <select name="category">
+        <option value="tool">備品</option>
+        <option value="material">材料</option>
+      </select>
       <x-primary-button type="submit">追加</x-primary-button>
     </form>
 
