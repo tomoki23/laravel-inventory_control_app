@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StockPostRequest;
+use App\Models\Category;
 use App\Models\Stock;
 use Illuminate\Http\Request;
 
@@ -40,10 +41,21 @@ class StockController extends Controller
     {
         $toolName = $request->input('tool_name');
         $quantity = $request->input('quantity');
+
+        if ($request->input('category') === 'tool') {
+            $category = Category::find(1);
+        }
+
+        if ($request->input('category') === 'material') {
+            $category = Category::find(2);
+        }
+
         Stock::create([
             'tool_name' => $toolName,
-            'quantity' => $quantity
+            'quantity' => $quantity,
+            'category_id' => $category->id
         ]);
+
 
         return redirect('stocks');
     }
