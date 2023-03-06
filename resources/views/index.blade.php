@@ -12,6 +12,14 @@
       <x-primary-button type="submit">追加</x-primary-button>
     </form>
 
+    <form action="{{ route('stocks.index') }}">
+      <select name="category">
+        <option value="tool">備品</option>
+        <option value="material">材料</option>
+      </select>
+      <x-primary-button type="submit">送信</x-primary-button>
+    </form>
+
     {{-- エラー表示 --}}
     {{-- エラーがあるか判定 --}}
     @if ($errors->any())
