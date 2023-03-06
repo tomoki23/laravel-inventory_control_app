@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('stocks', function (Blueprint $table) {
-            $table->foreignId('category_id')->after('quantity')->constrained();
+        Schema::create('stocks', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('category_id')->constrained('categories');
+            $table->string('tool_name');
+            $table->integer('quantity');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('stocks', function (Blueprint $table) {
-            $table->dropColumn('category_id');
-        });
+        Schema::dropIfExists('stocks');
     }
 };

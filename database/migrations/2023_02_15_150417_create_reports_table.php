@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->string('member');
+            $table->foreignId('user_id')->constrained();
+            $table->integer('member_id');
+            $table->string('site_name');
             $table->longText('content');
             $table->timestamps();
         });
