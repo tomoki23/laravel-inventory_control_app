@@ -15,6 +15,7 @@
     <form action="{{ route('stocks.index') }}" method="post">
       @csrf
       <select name="category">
+        <option value="" selected>カテゴリー</option>
         <option value="tool">備品</option>
         <option value="material">材料</option>
       </select>
