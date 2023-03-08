@@ -29,15 +29,17 @@
       <form action="{{ route('reports.store') }}" method="POST">
         @csrf
         <label name="user_name">登録者名</label>
-        <input type="text" name="user_name">
+        <input type="text" value="{{ $authUser->name }}">
+        <input type="hidden" name="user_id" value="{{ $authUser->id }}">
         <br>
         <label name="site_name">現場名</label>
         <input type="text" name="site_name">
         <br>
         <p>メンバー</p>
-        ユーザー1<input type="checkbox" name="member[]" value="佐藤">
-        ユーザー2<input type="checkbox" name="member[]" value="鈴木">
-        ユーザー3<input type="checkbox" name="member[]" value="高橋">
+        @foreach ($users as $user)
+          {{ $user->name }}<input type="checkbox" value="{{ $user->name }}">
+          <input type="hidden" name="member_id[]" value="{{ $user->id }}">
+        @endforeach
         <br>
         <label name="content">業務内容</label>
         <textarea name="content" cols="50" rows="4" placeholder="業務内容を入力してください"></textarea>
