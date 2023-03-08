@@ -37,8 +37,7 @@
         <br>
         <p>メンバー</p>
         @foreach ($users as $user)
-          {{ $user->name }}<input type="checkbox" value="{{ $user->name }}">
-          <input type="hidden" name="member_id[]" value="{{ $user->id }}">
+          {{ $user->name }}<input type="checkbox" name="member_id[]" value="{{ $user->id }}">
         @endforeach
         <br>
         <label name="content">業務内容</label>
