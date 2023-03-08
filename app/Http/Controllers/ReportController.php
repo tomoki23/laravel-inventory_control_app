@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ReportPostRequest;
 use App\Models\Report;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -16,6 +18,7 @@ class ReportController extends Controller
     public function index()
     {
         $reports = Report::all();
+
         return view('reports.index', compact('reports'));
     }
 
@@ -26,7 +29,10 @@ class ReportController extends Controller
      */
     public function create()
     {
-        return view('reports.create');
+        $users = User::all();
+        $authUser = Auth::user();
+
+        return view('reports.create', compact('users', 'authUser'));
     }
 
     /**
@@ -38,18 +44,21 @@ class ReportController extends Controller
     public function store(ReportPostRequest $request)
     {
         //リクエスト情報を取得
-        $userName = $request->input('user_name');
+        $userId = $request->input('user_id');
+        $memberId = $request->input('member_id');
         $siteName = $request->input('site_name');
-        $members = $request->input('member');
         $content = $request->input('content');
 
         // データベースに登録
-        Report::create([
-            'user_name' => $userName,
-            'site_name' => $siteName,
-            'member' => $members[0],
-            'content' => $content
-        ]);
+        $report = new Report();
+        $report->user_id = $userId;
+        $report->site_name = $siteName;
+        $report->content = $content;
+        $report->save();
+
+        $report = Report::find($report->id);
+        $report->users()->attach($memberId);
+        $report->save();
 
         return redirect('reports');
     }
