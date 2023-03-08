@@ -24,9 +24,8 @@ class ReportPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_name' => 'required|min:1|max:255',
+            'user_id' => 'required|min:1|max:50',
             'site_name' => 'required|min:1|max:255',
-            'member' => 'nullable|array',
             'content' => 'required|min:1|max:1000'
         ];
     }
