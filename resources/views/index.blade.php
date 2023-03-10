@@ -3,8 +3,8 @@
     {{-- 追加フォーム --}}
     <form action="{{ route('stocks.store') }}" method="POST">
       @csrf
-      <input type="text" name="tool_name">
-      <input type="number" name="quantity">
+      <input type="text" name="tool_name" value="{{ old('tool_name') }}">
+      <input type="number" name="quantity" value="{{ old('quantity') }}">
       <select name="category">
         <option value="tool">備品</option>
         <option value="material">材料</option>
