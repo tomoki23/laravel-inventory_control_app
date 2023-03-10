@@ -12,6 +12,16 @@
       <x-primary-button type="submit">追加</x-primary-button>
     </form>
 
+    {{-- エラー表示 --}}
+    {{-- エラーがあるか判定 --}}
+    @if ($errors->any())
+    <ul>
+      @foreach ($errors->all() as $message)
+      <li class="text-red-600">{{ $message }}</li>
+      @endforeach
+    </ul>
+    @endif
+
     <form action="{{ route('stocks.index') }}" method="POST">
       @csrf
       <select name="category">
@@ -21,16 +31,6 @@
       </select>
       <x-primary-button type="submit">送信</x-primary-button>
     </form>
-
-    {{-- エラー表示 --}}
-    {{-- エラーがあるか判定 --}}
-    @if ($errors->any())
-        <ul>
-          @foreach ($errors->all() as $message)
-              <li class="text-red-600">{{ $message }}</li>
-          @endforeach
-        </ul>
-    @endif
 
     <div class="relative overflow-x-auto mt-8">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
