@@ -12,7 +12,7 @@
       <x-primary-button type="submit">追加</x-primary-button>
     </form>
 
-    <form action="{{ route('stocks.index') }}" method="post">
+    <form action="{{ route('stocks.index') }}" method="POST">
       @csrf
       <select name="category">
         <option value="" selected>カテゴリー</option>
