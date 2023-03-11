@@ -29,7 +29,7 @@
       @foreach ($reports as $report)
         <div>
           <p>{{ $report->created_at }}</p>
-          <p><a href="{{ route('reports.show', $report->id) }}">{{ $report->user_name }}</a></p>
+          <p><a href="{{ route('reports.show', $report->id) }}">{{ $report->user->name }}</a></p>
           <p>{{ $report->content }}</p>
         </div>
         <hr>
