@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\StockHistoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,8 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('stocks', StockController::class);
     Route::resource('reports', ReportController::class);
+    Route::resource('histories', StockHistoryController::class);
 });
 
 
 require __DIR__ . '/auth.php';
-
