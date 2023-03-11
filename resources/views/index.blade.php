@@ -22,15 +22,9 @@
     </ul>
     @endif
 
-    <form action="{{ route('stocks.index') }}" method="POST">
-      @csrf
-      <select name="category">
-        <option value="" selected>カテゴリー</option>
-        <option value="tool">備品</option>
-        <option value="material">材料</option>
-      </select>
-      <x-primary-button type="submit">送信</x-primary-button>
-    </form>
+    @foreach ($categories as $category)
+      <x-secondary-button type="submit"><a href="{{ route('stocks.show', $category->id) }}">{{ $category->name }}</a></x-secondary-button>
+    @endforeach
 
     <div class="relative overflow-x-auto mt-8">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
