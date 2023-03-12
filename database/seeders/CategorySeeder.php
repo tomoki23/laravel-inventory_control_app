@@ -17,13 +17,13 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::insert([
-            'name' => 'tool',
+            'name' => '備品',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
 
         Category::insert([
-            'name' => 'material',
+            'name' => '材料',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
