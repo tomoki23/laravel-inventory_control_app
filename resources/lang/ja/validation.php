@@ -169,7 +169,6 @@ return [
         'birthday' => '誕生日',
         'body' => '本文',
         'city' => '市',
-        'content' => 'コンテンツ',
         'country' => '国',
         'created_at' => '作成日',
         'creator' => '作成者',
@@ -234,7 +233,9 @@ return [
         'username' => 'ユーザー名',
         'year' => '年',
         'tool_name' => '備品または材料',
-        'quantity' => '個数'
+        'quantity' => '個数',
+        'site_name' => '現場名',
+        'content' => '作業内容',
     ],
 
 ];
