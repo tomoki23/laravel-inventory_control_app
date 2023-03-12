@@ -72,8 +72,9 @@ class ReportController extends Controller
     public function show($id)
     {
         $report = Report::find($id);
+        $members = Report::find($id)->users()->get();
 
-        return view('reports.show', compact('report'));
+        return view('reports.show', compact('report', 'members'));
     }
 
     /**
