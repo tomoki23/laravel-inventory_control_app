@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateReportRequest;
 use App\Http\Requests\ReportPostRequest;
+use App\Http\Requests\UpdateReportRequest;
 use App\Models\Report;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +43,7 @@ class ReportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ReportPostRequest $request)
+    public function store(CreateReportRequest $request)
     {
         //リクエスト情報を取得
         $userId = $request->input('user_id');
@@ -86,8 +88,10 @@ class ReportController extends Controller
     public function edit($id)
     {
         $report = Report::find($id);
+        $authUser = Auth::user();
+        $users = User::all();
 
-        return view('reports.edit', compact('report'));
+        return view('reports.edit', compact('report', 'authUser', 'users'));
     }
 
     /**
@@ -97,16 +101,26 @@ class ReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ReportPostRequest $request, $id)
+    public function update(UpdateReportRequest $request, $id)
     {
         //$idのデータを取得
         $report = Report::find($id);
 
+        //リクエスト情報を取得
+        $userId = $request->input('user_id');
+        $memberId = $request->input('member_id');
+        $siteName = $request->input('site_name');
+        $content = $request->input('content');
+
         //変更内容を更新
-        $report->user_name = $request->input('user_name');
-        $report->site_name = $request->input('site_name');
-        $report->member = $request->input('member');
-        $report->content = $request->input('content');
+        $report->user_id = $userId;
+        $report->site_name = $siteName;
+        $report->content = $content;
+        $report->save();
+
+        $report = Report::find($id);
+        $report->users()->detach();
+        $report->users()->attach($memberId);
         $report->save();
 
         return redirect('reports');
