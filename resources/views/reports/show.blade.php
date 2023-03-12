@@ -27,8 +27,15 @@
   <main>
     <div>
         <div>
-          <p>{{ $report->user_name }}</p>
+          <strong>投稿者</strong>
+          <p>{{ $report->user->name }}</p>
+          <strong>メンバー</strong>
+          @foreach ($members as $member)
+            <p>{{ $member->name }}</p>
+          @endforeach
+          <strong>作業内容</strong>
           <p>{{ $report->content }}</p>
+          <strong>作業日時</strong>
           <p>{{ $report->created_at }}</p>
         </div>
         <a href="{{ route('reports.edit', $report->id) }}">更新</a>
