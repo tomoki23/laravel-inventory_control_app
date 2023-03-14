@@ -22,9 +22,15 @@
     </ul>
     @endif
 
-    @foreach ($categories as $category)
-      <x-secondary-button type="submit"><a href="{{ route('stocks.show', $category->id) }}">{{ $category->name }}</a></x-secondary-button>
-    @endforeach
+    <form action="{{ route('stocks.index') }}" method="GET">
+      <select name="category">
+        <option value="" selected>カテゴリー</option>
+        @foreach ($categories as $category)
+          <option value="{{ $category->id }}" >{{ $category->name }}</option>
+        @endforeach
+      </select>
+      <x-secondary-button type="submit">検索</a></x-secondary-button>
+    </form>
 
     <div class="relative overflow-x-auto mt-8">
       <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
