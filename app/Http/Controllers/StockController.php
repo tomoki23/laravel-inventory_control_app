@@ -14,9 +14,15 @@ class StockController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tools = Stock::all();
+        // dd($request->input('category'));
+        if ($request->input('category')) {
+            $id = $request->input('category');
+            $tools = Category::find($id)->stocks()->get();
+        } else {
+            $tools = Stock::all();
+        }
         $categories = Category::all();
 
         return view('index', compact('tools', 'categories'));
@@ -69,16 +75,7 @@ class StockController extends Controller
      */
     public function show($id)
     {
-
-        if ($id) {
-            $tools = Category::find($id)->stocks()->get();
-        } else {
-            $tools = Stock::all();
-        }
-
-        $categories = Category::all();
-
-        return view('show', compact('tools', 'categories'));
+        //
     }
 
     /**
